@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balgin+Condensed:wght@400;600&family=Balgin:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Employee Builder</title>
+  </head>
+  <body>
+    <div class="quiz-container">
+      <div class="quiz-step active" id="step1">
+        <h2>Step 1: Computer Skills</h2>
+        <div class="lists">
+          <div class="list-box">
+            <ul id="options1"></ul>
+            <input
+              type="text"
+              placeholder="Add a skill"
+              onkeydown="addSkill(event, 'options1')"
+            />
+          </div>
+          <div class="list-box">
+            <ul id="selected1"></ul>
+          </div>
+        </div>
+        <button class="button" onclick="nextStep(2)">Next</button>
+      </div>
+
+      <div class="quiz-step" id="step2">
+        <h2>Step 2: Power Skills</h2>
+        <div class="lists">
+          <div class="list-box">
+            <ul id="options2"></ul>
+            <input
+              type="text"
+              placeholder="Add a skill"
+              onkeydown="addSkill(event, 'options2')"
+            />
+          </div>
+          <div class="list-box">
+            <ul id="selected2"></ul>
+          </div>
+        </div>
+        <button class="button" onclick="nextStep(3)">Next</button>
+      </div>
+
+      <div class="quiz-step" id="step3">
+        <h2>Step 3: Technical Skills</h2>
+        <div class="lists">
+          <div class="list-box">
+            <ul id="options3"></ul>
+            <input
+              type="text"
+              placeholder="Add a skill"
+              onkeydown="addSkill(event, 'options3')"
+            />
+          </div>
+          <div class="list-box">
+            <ul id="selected3"></ul>
+          </div>
+        </div>
+        <button class="button" onclick="nextStep(4)">Finish</button>
+      </div>
+
+      <div class="quiz-step" id="step4">
+        <div class="final-message">
+          <img
+            src="https://via.placeholder.com/600x300"
+            alt="You Built The Perfect Employee"
+          />
+          <br />
+          <a href="https://your-portfolio-link.com" target="_blank">
+            <button class="button">View My Portfolio</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
