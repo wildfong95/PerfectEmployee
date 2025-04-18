@@ -1,0 +1,113 @@
+// List of skills for each step
+const skills = {
+  options1: [
+    "Mac/OS/iOS + Microsoft Windows Interface",
+    "Adobe Creative Suite - Illustrator, Photoshop, Lightroom, Etc.",
+    "Presentations - Canva, Keynote, Powerpoint, Slides",
+    "Google - Docs, Analytics, Business Profile, etc.",
+    "Meta Business Suite + Ads",
+    "Spreadsheets (automation/formulas) - Excel, Sheets, Numbers",
+    "Digitizing Software - Chroma",
+    "Video Editing - Capcut, Videoleap, etc.",
+    "SMM Tools - Semrush, Social Cat, Buffer, Later, etc.",
+    "Email Marketing - Omnisend, Klaviyo, Redo",
+    "Social Media Platforms - Instagram, Facebook, Pinterest, TikTok",
+    "Shipping Software - Shipstation, Shippo, Shopify, Redo",
+    "E-Commerce Design + Management - Shopify, Squarespace, Etc.",
+    "Graphic Design - CAD (.ai), Computerized Patternmaking (Optitex), 3-D Fashion Design (Clo3D)",
+  ],
+  options2: [
+    "Art Direction",
+    "Creative Vision",
+    "Visual storytelling",
+    "Problem-Solving",
+    "Growth Mindset",
+    "Love for Learning",
+    "Self Management",
+    "Dedicated",
+    "Innovative",
+    "Resourceful",
+    "Adaptability",
+    "Flexibility",
+    "Team Leadership + Collaboration",
+    "Design Visualization",
+    "Idea Brainstorming",
+    "Originality and Creativity",
+    "Critical Thinking",
+    "Creative Designing",
+    "Concept Development",
+    "Strategic Thinking",
+    "Design Understanding",
+    "Resilient/Optimistic",
+    "Taking Initiative",
+    "Multitasking",
+    "Meeting Deadlines",
+    "Streamlining Workflow",
+    "Design Leadership",
+    "Bonus* - Sense of humor",
+  ],
+  options3: [
+    "Visual Merchandising",
+    "Social Media",
+    "Marketing/Ads",
+    "Management",
+    "Market Research",
+    "Apparel Production",
+    "Buying",
+    "Fashion Design",
+    "Fashion Styling",
+    "Window Displays",
+    "Color Theory",
+    "Product Display",
+    "Event Coordination",
+    "Moodboard/Pitch Decks",
+    "Visual Media/Promo Design",
+    "Mannequin Dressing",
+    "Display Installation",
+    "Garment Construction",
+    "Hand Sewing",
+    "Patternmaking",
+    "Machine Sewing",
+    "Sustainable Fashion",
+    "Screen Print",
+    "Multi Needle Embroidery",
+    "Flat Sketch",
+    "Tech Packs",
+    "Fabric Sourcing",
+    "Fashion Illustration",
+    "Photoshoot Direction",
+    "Spreadsheets",
+    "Trend Forecasting",
+    "Textile Design",
+  ],
+};
+
+// Function to populate the lists dynamically
+window.onload = () => {
+  Object.keys(skills).forEach((listId) => {
+    const ul = document.getElementById(listId);
+    skills[listId].forEach((skill) => {
+      const li = document.createElement("li");
+      li.textContent = skill;
+      li.onclick = () => moveToSelected(li); // Add click functionality
+      ul.appendChild(li);
+    });
+  });
+};
+
+// Function to move items to the selected list
+function moveToSelected(li) {
+  const targetId = li.parentNode.id.replace("options", "selected");
+  const targetUl = document.getElementById(targetId);
+  li.classList.add("selected"); // Add a class for styling
+  targetUl.appendChild(li);
+  li.onclick = null; // Disable further clicks
+}
+
+// Function to navigate between steps
+function nextStep(stepNum) {
+  const steps = document.querySelectorAll(".quiz-step");
+  steps.forEach((step) => step.classList.remove("active"));
+  document.getElementById(`step${stepNum}`).classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
